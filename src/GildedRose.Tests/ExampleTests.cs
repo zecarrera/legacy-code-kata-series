@@ -1,10 +1,10 @@
-using Xunit;
+using NUnit.Framework;
 
 namespace GildedRose.Tests
 {
-    public class TestAssemblyTests
+    public class ExampleTests
     {
-        [Fact]
+        [Test]
         public void TestTheTruth()
         {
             Assert.True(true);
