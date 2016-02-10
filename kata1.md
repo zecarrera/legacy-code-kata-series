@@ -1,5 +1,7 @@
 # Legacy Code Kata 1
 
+Refer to the [readme.md](README.md) for an overview of the kata series and the code base we're working on.
+
 ## Learning aims
 
 Understand the pains of working with a badly designed legacy code base:
