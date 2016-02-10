@@ -12,7 +12,7 @@ Understand the pains of working with a badly designed legacy code base:
 
 Implement a new feature in the legacy code base.
 
-`Conjured` items degrade in quality twice as fast as normal items. However, this hasn't been implemented in the code base yet. **Make the necessary changes so that this is taken into account.**
+`Conjured` items are a concept that already exist in the code base. They behave in exactly the same way as normal items, except that they degrade in quality twice as fast. However, this double speed degradation hasn't been implemented in the code base yet. **Make the necessary changes so that `Conjured` items degrade twice as fast as normal items.**
 
 The system must still be functionally correct after you have made your changes - i.e. you must not introduce any bugs!
 
