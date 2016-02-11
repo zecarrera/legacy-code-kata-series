@@ -10,7 +10,7 @@ Each kata will ask you to perform a task which should take no more than an hour 
 
 Each kata starts from its own branch in the repository. The solution file in that branch has everything you need to get working on the kata straight away.
 
-Get started with [Kata 1](Kata1.md)
+Get started with [Kata 1](kata1.md)
 
 ## Based on GildedRose by Terry Hughes
 
