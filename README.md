@@ -2,7 +2,7 @@
 
 This Legacy Code kata series will help you practice maintaining and refactoring legacy code. Many developers work with legacy code every day. This is often the most important code in the business, but can be notorious for lacking tests and being scary to change. We will practice ways of bringing these code bases under control so that features can be more safely added and with less difficulty.
 
-Our starting point is a codebase created by a no-nonsense contractor. The codebase manages the inventory for a small inn called Gilded Rose. It automatically keeps track of the quality of goods as they approach their sell by date. We are going to learn the best ways of extending this system without breaking it, and refactoring it to make further additions easier.
+Our starting point is a codebase created by a no-nonsense contractor. The codebase manages the inventory for a small inn called Gilded Rose. The program automatically keeps track of the quality of goods as they approach their sell by date. We are going to learn the best ways of extending this system without breaking it, and refactoring it to make further additions easier.
 
 ## Getting Started
 
