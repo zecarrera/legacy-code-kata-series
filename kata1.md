@@ -5,8 +5,9 @@ Refer to the [readme.md](README.md) for an overview of the kata series and the c
 ## Learning aims
 
 Understand the pains of working with a badly designed legacy code base:
-1. How difficult it is to have confidence in changes that aren't backed by tests
-2. The difficulty/time required to implement new features
+
+  1. How difficult it is to have confidence in changes that aren't backed by tests
+  2. The difficulty/time required to implement new features
 
 ## Tasks
 
