@@ -39,5 +39,13 @@ namespace GildedRose.Tests
             Assert.That(items[0].Quality, Is.EqualTo(0));
         }
 
+        [Test]
+        public void QualityDegradesTwiceAsFastWhenSellInHasPassedForRegularItem()
+        {
+            var app = new Program();
+            var items = buildTestItem(-1, 4);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(2));
+        }
     }
 }
