@@ -47,5 +47,14 @@ namespace GildedRose.Tests
             app.UpdateQuality(items);
             Assert.That(items[0].Quality, Is.EqualTo(2));
         }
+
+        [Test]
+        public void QualityDegradesRegularlyWhenSellInIsOneForRegularItem()
+        {
+            var app = new Program();
+            var items = buildTestItem(1, 4);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(3));
+        }
     }
 }
