@@ -79,10 +79,54 @@ namespace GildedRose.Tests
         public void SulfurasQualityDoesNotDecrease()
         {
             var app = new Program();
-            var items = buildTestItem("Sulfuras, Hand of Ragnaros", 1, 50);
+            var items = buildTestItem("Sulfuras, Hand of Ragnaros", 1, 80);
             app.UpdateQuality(items);
-            Assert.That(items[0].Quality, Is.EqualTo(50));
+            Assert.That(items[0].Quality, Is.EqualTo(80));
         }
-        
+
+        [Test]
+        public void BackstagePassQualityIncreasesByTwoWhenThereAreTenDaysLeft()
+        {
+            var app = new Program();
+            var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 10, 0);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThenTenDays()
+        {
+            var app = new Program();
+            var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 9, 0);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void BackstagePassQualityIncreasesByThreeWhenThereAreFiveDaysLeft()
+        {
+            var app = new Program();
+            var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 5, 0);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThenFiveDays()
+        {
+            var app = new Program();
+            var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 4, 0);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void BackstagePassQualityIsZeroWhenSellInDateIsZero()
+        {
+            var app = new Program();
+            var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 0, 10);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(0));
+        }
     }
 }
