@@ -94,7 +94,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThenTenDays()
+        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThanTenDays()
         {
             var app = new Program();
             var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 9, 0);
@@ -112,7 +112,7 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThenFiveDays()
+        public void BackstagePassQualityIncreasesByTwoWhenThereAreLessThanFiveDays()
         {
             var app = new Program();
             var items = buildTestItem("Backstage passes to a TAFKAL80ETC concert", 4, 0);
@@ -143,6 +143,15 @@ namespace GildedRose.Tests
         {
             var app = new Program();
             var items = buildTestItem("Conjured Mana Cake", 5, 1);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void ConjuredItemsQualityDecreaseWhenSellInSmallerThanZero()
+        {
+            var app = new Program();
+            var items = buildTestItem("Conjured Mana Cake", -1, 4);
             app.UpdateQuality(items);
             Assert.That(items[0].Quality, Is.EqualTo(0));
         }
