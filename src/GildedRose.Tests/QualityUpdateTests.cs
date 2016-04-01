@@ -128,5 +128,23 @@ namespace GildedRose.Tests
             app.UpdateQuality(items);
             Assert.That(items[0].Quality, Is.EqualTo(0));
         }
+
+        [Test]
+        public void ConjuredItemsQualityDegradesTwiceAsFast()
+        {
+            var app = new Program();
+            var items = buildTestItem("Conjured Mana Cake", 5, 10);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void ConjuredItemsQualityCantBeNegative()
+        {
+            var app = new Program();
+            var items = buildTestItem("Conjured Mana Cake", 5, 1);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(0));
+        }
     }
 }
