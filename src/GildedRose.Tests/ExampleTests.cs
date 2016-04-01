@@ -7,11 +7,11 @@ namespace GildedRose.Tests
 {
     public class ExampleTests
     {
-        private IList<Item> buildTestItem(int sellIn, int quality)
+        private IList<Item> buildTestItem(string itemName, int sellIn, int quality)
         {
             return new List<Item>
             {
-                new Item {Name = "+5 Dexterity Vest", SellIn = sellIn, Quality = quality}
+                new Item {Name = itemName, SellIn = sellIn, Quality = quality}
             };
         }
 
@@ -19,7 +19,7 @@ namespace GildedRose.Tests
         public void RegularItemsDecreaseSellInAndQualityByOneOnUpdate()
         {
             var app = new Program();
-            var items = buildTestItem(10, 20);
+            var items = buildTestItem("+5 Dexterity Vest", 10, 20);
             app.UpdateQuality(items);
             Assert.That(items[0].SellIn, Is.EqualTo(9));
             Assert.That(items[0].Quality, Is.EqualTo(19));
@@ -29,7 +29,7 @@ namespace GildedRose.Tests
         public void QualityIsNotNegativeForRegularItem()
         {
             var app = new Program();
-            var items = buildTestItem(3, 3);
+            var items = buildTestItem("+5 Dexterity Vest", 3, 3);
             var count = 1;
             do
             {
@@ -43,7 +43,7 @@ namespace GildedRose.Tests
         public void QualityDegradesTwiceAsFastWhenSellInHasPassedForRegularItem()
         {
             var app = new Program();
-            var items = buildTestItem(-1, 4);
+            var items = buildTestItem("+5 Dexterity Vest", -1, 4);
             app.UpdateQuality(items);
             Assert.That(items[0].Quality, Is.EqualTo(2));
         }
@@ -52,9 +52,18 @@ namespace GildedRose.Tests
         public void QualityDegradesRegularlyWhenSellInIsOneForRegularItem()
         {
             var app = new Program();
-            var items = buildTestItem(1, 4);
+            var items = buildTestItem("+5 Dexterity Vest", 1, 4);
             app.UpdateQuality(items);
             Assert.That(items[0].Quality, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void AgedBriesIncreasesQualityAsGetsOlder()
+        {
+            var app = new Program();
+            var items = buildTestItem("Aged Brie", 2, 0);
+            app.UpdateQuality(items);
+            Assert.That(items[0].Quality, Is.EqualTo(1));
         }
     }
 }
