@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace GildedRose.Tests
 {
-    public class ExampleTests
+    public class QualityUpdateTests
     {
         private IList<Item> buildTestItem(string itemName, int sellIn, int quality)
         {
